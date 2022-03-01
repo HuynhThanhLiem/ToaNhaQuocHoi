@@ -1,0 +1,1002 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Bản đồ 3D</title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #back {
+            position: absolute;
+            bottom: 20px;
+        }
+
+            #back i {
+                background-image: url(app/public/img/back.svg);
+                background-repeat: no-repeat;
+                display: inline-block;
+                width: 100px;
+                height: 25px;
+                padding-left: 25px;
+                padding-top: 2px;
+                margin: 10px;
+                cursor: pointer;
+                background-size: 20px;
+            }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="~/images/shortcut.svg" />
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <!-- Slick slider -->
+    <link href="~/css/slick.css" rel="stylesheet">
+    <!-- Theme color -->
+    <link id="switcher" href="~/css/theme-color/default-theme.css" rel="stylesheet">
+    <!-- Main Style -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- Fonts -->
+    <!-- Open Sans for body font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+    <!-- Montserrat for title -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.16/"></script>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/SceneView",
+            "esri/layers/GeoJSONLayer",
+            "esri/layers/SceneLayer", "esri/layers/GraphicsLayer", "esri/Graphic", "esri/request",
+        ], function (Map, SceneView, GeoJSONLayer, SceneLayer,
+            GraphicsLayer, Graphic, esriRequest) {
+            var createGraphic = function (data) {
+                return new Graphic({
+                    geometry: data,
+                    symbol: data.symbol,
+                    attributes: data,
+                    popupTemplate: data.popupTemplate
+                });
+            };
+
+            /* ----- COLUMN LAYER----- */
+            //Cột 26m
+            const columnALayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=1"
+            });
+
+            columnALayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 26,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Cột 16m
+            const columnBLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=2"
+            });
+
+            columnBLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 16,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Cột 9.55m
+            const columnCLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=17"
+            });
+
+            columnCLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 9.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Cột 19.55m
+            const columnDLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=18"
+            });
+
+            columnDLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 19.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Cột 14m
+            const columnELayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=19"
+            });
+
+            columnELayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 14,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Cột ngang tầng 1
+            const rowColumnLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=8"
+            });
+
+            rowColumnLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            /* ------ END COLUMN ------*/
+
+            /* ----- STAIRCASE LAYER----- */
+
+            //Bậc thang 0.14m
+            const stairCaseALayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=20"
+            });
+
+            stairCaseALayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.14,
+                        material: {
+                            color: "rgb(218,219,213)"
+                        }
+                    }]
+                }
+            };
+
+            //Bậc thang 0.20
+            const stairCaseBLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=21"
+            });
+
+            stairCaseBLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.2,
+                        material: {
+                            color: "rgb(218,219,213)"
+                        }
+                    }]
+                }
+            };
+
+            //Bậc thang 0.98m
+            const stairCaseCLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=22"
+            });
+
+            stairCaseCLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.98,
+                        material: {
+                            color: "rgb(218,219,213)"
+                        }
+                    }]
+                }
+            };
+
+            //Bậc thang 1.4m
+            const stairCaseDLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=23"
+            });
+
+            stairCaseDLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 1.4,
+                        material: {
+                            color: "rgb(218,219,213)"
+                        }
+                    }]
+                }
+            };
+
+            //Lan can
+            const railingLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=41"
+            });
+
+            railingLayer.renderer = {
+                type: "simple",
+                field: "mag",
+                symbol: {
+                    type: "simple-fill",
+                    color: "rgb(218,219,213)",
+                    outline: {
+                        color: "rgb(218,219,213)"
+                    }
+                }
+            };
+
+            //Mái hiên
+            const eavesLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=29"
+            });
+
+            eavesLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.3,
+                        material: {
+                            color: "rgb(94, 107, 110)"
+                        }
+                    }]
+                }
+            };
+
+            //Phủ mái hiên
+            const coverEavesLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=28"
+            });
+
+            coverEavesLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.1,
+                        material: {
+                            color: "rgb(174, 190, 194)"
+                        }
+                    }]
+                }
+            };
+
+            /* ----- ENDSTAIRCASE LAYER----- */
+
+            /* ------ FLOOR LAYER ------*/
+            //Nền nhà
+            const floorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=24"
+            });
+
+            floorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 1.4,
+                        material: {
+                            color: "rgb(116, 113, 109)"
+                        }
+                    }]
+                }
+            };
+
+            //Tường tầng 1
+            const wallFirstFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=36"
+            });
+
+            wallFirstFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 6.45,
+                        material: {
+                            color: "rgb(218,219,213)"
+                        }
+                    }]
+                }
+            };
+
+            //Tầng 1
+            const firstFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=37"
+            });
+
+            firstFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 6.45,
+                        material: {
+                            color: "rgba(190,214,229,0.5)"
+                        }
+                    }]
+                }
+            };
+
+            //Cửa kính
+            const glassFirstFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=35"
+            });
+
+            glassFirstFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 6.45,
+                        material: {
+                            color: "rgb(227, 227, 202)"
+                        }
+                    }]
+                }
+            };
+
+            //Khung ngang cửa chính
+            const frameAMainDoorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=30"
+            });
+
+            frameAMainDoorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.1,
+                        material: {
+                            color: "rgb(113, 102, 80)"
+                        }
+                    }]
+                }
+            };
+
+            //Khung dọc cửa chính 4m
+            const frameBMainDoorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=31"
+            });
+
+            frameBMainDoorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 4,
+                        material: {
+                            color: "rgb(113, 102, 80)"
+                        }
+                    }]
+                }
+            };
+
+            //Khung dọc cửa chính 6m
+            const frameCMainDoorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=34"
+            });
+
+            frameCMainDoorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 6,
+                        material: {
+                            color: "rgb(113, 102, 80)"
+                        }
+                    }]
+                }
+            };
+
+            //Kính cửa chính
+            const glassAMainDoorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=32"
+            });
+
+            glassAMainDoorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 3.8,
+                        material: {
+                            color: "rgba(190,214,229,0.3)"
+                        }
+                    }]
+                }
+            };
+
+            //Kính dài cửa chính
+            const glassBMainDoorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=33"
+            });
+
+            glassBMainDoorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 1.875,
+                        material: {
+                            color: "rgba(190,214,229,0.3)",
+                        }
+                    }]
+                }
+            };
+
+            //Tầng 2
+            const secondFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=39"
+            });
+
+            secondFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.5,
+                        material: {
+                            color: "rgba(190,214,229,0.5)"
+                        }
+                    }]
+                }
+            };
+            //Khối tầng 2
+            const secondBlockFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=40"
+            });
+
+            secondBlockFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 4.95,
+                        material: {
+                            color: "rgba(190,214,229,0.5)"
+                        }
+                    }]
+                }
+            };
+
+            //Tầng 3
+            const thirdFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=11"
+            });
+
+            thirdFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 3.9,
+                        material: {
+                            color: "rgba(190,214,229,0.5)"
+                        }
+                    }]
+                }
+            };
+
+            //Tầng 4-5
+            const lastFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=12"
+            });
+
+            lastFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 4.65,
+                        material: {
+                            color: "rgba(190,214,229,0.5)"
+                        }
+                    }]
+                }
+            };
+
+            //Trung tâm
+            const centerFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=42"
+            });
+
+            centerFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 13.45,
+                        material: {
+                            color: "rgb(190,214,229)"
+                        }
+                    }]
+                }
+            };
+
+            //Kính hành lang tầng 3
+            const glassFloorALayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=13"
+            });
+
+            glassFloorALayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 3.9,
+                        material: {
+                            color: "rgba(190,214,229,0.25)"
+                        }
+                    }]
+                }
+            };
+
+            //Kính hành lang tầng 4-5
+            const glassFloorBLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=14"
+            });
+
+            glassFloorBLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 4.65,
+                        material: {
+                            color: "rgba(190,214,229,0.25)"
+                        }
+                    }]
+                }
+            };
+
+            //Trần nhà
+            const roofFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=9"
+            });
+
+            roofFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.05,
+                        material: {
+                            color: "rgb(218,219,213)"
+                        }
+                    }]
+                }
+            };
+
+            //Trần tầng
+            const roofFirstFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=38"
+            });
+
+            roofFirstFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.05,
+                        material: {
+                            color: "rgb(218,219,213)"
+                        }
+                    }]
+                }
+            };
+
+            //Trần lan can
+            const roofRailingFloorLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=15"
+            });
+
+            roofRailingFloorLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.05,
+                        material: {
+                            color: "rgb(190,214,229)"
+                        }
+                    }]
+                }
+            };
+
+            /* ------ ROOF DETAIL LAYER ------*/
+            //Kính tròn trên mái
+            const glassCircleRoofLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=10"
+            });
+
+            glassCircleRoofLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.55,
+                        material: {
+                            color: "rgba(190,214,229,0.75)"
+                        }
+                    }]
+                }
+            };
+
+            //Kính tròn nhỏ trên mái
+            //const glassBCircleRoofLayer = new GeoJSONLayer({
+            //    url: "https://localhost:44305/api/getcoordinates?id=10"
+            //});
+            
+            //glassBCircleRoofLayer.renderer = {
+            //    type: "simple",
+            //    symbol: {
+            //        type: "polygon-3d",
+            //        symbolLayers: [{
+            //            type: "extrude",
+            //            size: 0.55,
+            //            material: {
+            //                color: "rgba(190,214,229,0.75)"
+            //            }
+            //        }]
+            //    }
+            //};
+
+            //Mặt cong
+            const roundFaceLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=3"
+            });
+
+            roundFaceLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0,
+                        material: {
+                            color: "rgb(211, 223, 174)"
+                        },
+                        edges: {
+                            type: "solid",
+                            size: "1px",
+                            color: "rgb(143, 132, 84)",
+                        }
+                    }]
+                }
+            };
+
+            //Vòng tròn nhỏ
+            const smallCircleLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=4"
+            });
+
+            smallCircleLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Mặt tròn chính
+            const mainCircleLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=7"
+            });
+
+            mainCircleLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Cột vòm trời
+            const columnCircleLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=5"
+            });
+
+            columnCircleLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Cột trên mái
+            const columnRoofCircleLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=6"
+            });
+
+            columnRoofCircleLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Trụ trên mái
+            const columnRoofLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=25"
+            });
+
+            columnRoofLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 2,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Chi tiết mái
+            const detailRoofLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=26"
+            });
+
+            detailRoofLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.55,
+                        material: {
+                            color: "rgb(251, 249, 243)"
+                        }
+                    }]
+                }
+            };
+
+            //Mặt kính mái
+            const glassRoofLayer = new GeoJSONLayer({
+                url: "https://localhost:44305/api/getcoordinates?id=27"
+            });
+
+            glassRoofLayer.renderer = {
+                type: "simple",
+                symbol: {
+                    type: "polygon-3d",
+                    symbolLayers: [{
+                        type: "extrude",
+                        size: 0.2,
+                        material: {
+                            color: "rgba(190,214,229,0.75)"
+                        }
+                    }]
+                }
+            };
+
+            /*END DETAIL ROOF */
+
+            const map = new Map({
+                basemap: "topo-vector",
+                ground: "world-elevation",
+                layers: [
+                    columnALayer,
+                    columnBLayer,
+                    columnCLayer,
+                    columnDLayer,
+                    columnELayer,
+                    rowColumnLayer,
+                    stairCaseALayer,
+                    stairCaseBLayer,
+                    stairCaseCLayer,
+                    stairCaseDLayer,
+                    railingLayer,
+                    eavesLayer,
+                    coverEavesLayer,
+                    floorLayer,
+                    wallFirstFloorLayer,
+                    firstFloorLayer,
+                    glassFirstFloorLayer,
+                    frameAMainDoorLayer,
+                    frameBMainDoorLayer,
+                    frameCMainDoorLayer,
+                    glassAMainDoorLayer,
+                    glassBMainDoorLayer,
+                    secondFloorLayer,
+                    secondBlockFloorLayer,
+                    thirdFloorLayer,
+                    lastFloorLayer,
+                    centerFloorLayer,
+                    glassFloorALayer,
+                    glassFloorBLayer,
+                    roofFloorLayer,
+                    roofFirstFloorLayer,
+                    roofRailingFloorLayer,
+                    glassCircleRoofLayer,
+                    roundFaceLayer,
+                    smallCircleLayer,
+                    columnCircleLayer,
+                    columnRoofCircleLayer,
+                    mainCircleLayer,
+                    columnRoofLayer,
+                    detailRoofLayer,
+                    glassRoofLayer,
+                ] // end layers
+            });
+
+            const view = new SceneView({
+                container: "viewDiv",
+                map: map,
+                camera: {
+                    position: [105.83705049256521, 21.03738829954599, 1000],
+                    heading: 0,
+                    tilt: 0,
+                }
+            });
+
+            view.popup.defaultPopupTemplateEnabled = true;
+        });
+    </script>
+</head>
+
+<body>
+    <header id="mu-hero" class="" role="banner">
+        <!-- Start menu  -->
+        <nav class="navbar navbar-fixed-top navbar-default mu-navbar" style="top: 0px !important">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Nhóm 10</a>
+
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav mu-menu navbar-right">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                        <li><a href="#" class="active-map">Bản đồ 3D</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Tour">Tham quan</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Liên hệ</a></li>
+                        <li><a href="#">Đăng ký</a></li>
+                        <li><a href="#">Đăng nhập</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End menu -->
+
+        <div class="mu-hero-overlay">
+            <div class="container">
+                <div class="mu-hero-area">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    <div id="viewDiv" style="margin-top: 60px"></div>
+</body>
+
+</html>

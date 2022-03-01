@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Liên hệ";
+}
+<!-- Start Header -->
+<header id="mu-hero" class="" role="banner">
+    <!-- Start menu  -->
+    <nav class="navbar navbar-fixed-top navbar-default mu-navbar">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Logo -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Nhóm 10</a>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav mu-menu navbar-right">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Map">Bản đồ 3D</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Tour">Tham quan</a></li>
+                    <li><a href="#mu-hero">Liên hệ</a></li>
+                    <li><a href="#">Đăng ký</a></li>
+                    <li><a href="#">Đăng nhập</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End menu -->
+
+    <div class="mu-hero-overlay">
+        <div class="container">
+            <div class="mu-hero-area">
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End Header -->
+<!-- Start Register  -->
+<section id="mu-register">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-register-area">
+
+                    <div class="mu-title-area">
+                        <h2 class="mu-title">Liên hệ với chúng tôi</h2>
+                        <p>Mọi thông tin chi tiết, phản hồi hay góp ý, đừng ngần ngại hãy để lại thông tin cho chúng tôi.</p>
+                    </div>
+
+                    <div class="mu-register-content">
+                        <form class="mu-register-form">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Họ và tên" id="name" name="name" required="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email" id="email" name="email" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group custom-textarea">
+                                <textarea class="form-control" placeholder="Lời nhắn, góp ý, phản hồi" id="message" name="message" required></textarea>
+                            </div>
+                            <div class="btn-send-contact">
+                                <button type="submit" class="mu-reg-submit-btn">SUBMIT</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="margin: 100px 290px 30px;" class="contar">
+    <div class="row">
+        <div class="col-4">
+            <figure class="snip1208">
+                <img src="https://cdn.pixabay.com/photo/2016/08/15/10/17/survey-1594962__480.jpg" alt="sample66" />
+                <!-- <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i> -->
+                <figcaption>
+                    <h3>Khảo sát ý kiến</h3>
+                    <p>
+                        Nhằm nâng cao chất lượng hoạt động tham quan Nhà Quốc hội, kính mong Quý vị cho ý kiến đánh giá bằng cách thực hiện khảo sát dưới đây.
+                    </p>
+                </figcaption><a href="#"></a>
+            </figure>
+        </div>
+        <div class="col-4">
+            <figure class="snip1208">
+                <img src="https://cdn.pixabay.com/photo/2018/02/07/18/30/people-3137670__340.jpg" alt="sample66" />
+                <!-- <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i> -->
+                <figcaption>
+                    <h3>Giáo dục trải nghiệm về Quốc hội</h3>
+                    <p>
+                        Chương trình giáo dục trải nghiệm về Quốc hội tìm hiểu về hoạt động lập pháp của Quốc hội.
+                    </p>
+                </figcaption><a href="#"></a>
+            </figure>
+        </div>
+        <div class="col-4">
+            <figure class="snip1208">
+                <img src="https://media.istockphoto.com/photos/man-pointing-at-volunteer-inscription-picture-id1208272544?b=1&k=20&m=1208272544&s=170667a&w=0&h=ARqtUSkb8ZVCabCmiEox8sPJl29iewJuAQmbljJOjFU=" alt="sample66" />
+                <!-- <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i> -->
+                <figcaption>
+                    <h3>Đăng kí Tình nguyện</h3>
+                    <p>
+                        Đăng kí để trở thành tình nguyện viên tại tòa nhà Quốc Hội.
+                    </p>
+                </figcaption><a href="#"></a>
+            </figure>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToaNhaQuocHoi.API", "ToaNhaQuocHoi.API\ToaNhaQuocHoi.API.csproj", "{C9446940-BAD3-4FAF-A313-6C5D39E9C905}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9446940-BAD3-4FAF-A313-6C5D39E9C905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9446940-BAD3-4FAF-A313-6C5D39E9C905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9446940-BAD3-4FAF-A313-6C5D39E9C905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9446940-BAD3-4FAF-A313-6C5D39E9C905}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3CEE07A-2D04-4B47-B5C8-B8608A2AC49A}
+	EndGlobalSection
+EndGlobal

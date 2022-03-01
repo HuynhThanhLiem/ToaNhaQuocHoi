@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewData["Title"]</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="~/images/shortcut.svg" />
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <!-- Slick slider -->
+    <link href="~/css/slick.css" rel="stylesheet">
+    <!-- Theme color -->
+    <link id="switcher" href="~/css/theme-color/default-theme.css" rel="stylesheet">
+    <!-- Main Style -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- Fonts -->
+    <!-- Open Sans for body font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+    <!-- Montserrat for title -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
+</head>
+<body>
+
+    @RenderBody()
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>Tòa nhà Quốc Hội Việt Nam</h6>
+                    <p class="text-justify">
+                        số 1, đường Độc Lập, phường Quán Thánh, quận Ba Đình, thủ đô Hà Nội, Việt Nam.
+                        </br><b>Điện thoại liên hệ:</b> 080 43839 - 080.46628 - 080.46626<br><b>Email: </b><a href="">thamquannhaquochoi@gmail.com</a>
+                    </p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Giới thiệu chung</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="#">Bản đồ 3D</a></li>
+                        <li><a href="thamquan.html">Tham quan</a></li>
+                        <!-- <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
+                        <li><a href="http://scanfcode.com/category/android/">Android</a></li>
+                        <li><a href="http://scanfcode.com/category/templates/">Templates</a></li> -->
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Liên hệ</h6>
+                    <ul style="font-size: smaller" class="footer-links">
+                        <li><a href="#">Địa chỉ liên hệ</a></li>
+                        <li><a href="#">Khảo sát ý kiến</a></li>
+                        <li><a href="#">Đăng kí tình nguyện</a></li>
+                        <!-- <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                        <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Bootstrap -->
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script type="text/javascript" scr="~/js/bootstrap.min.js"></script>
+    <!-- Slick slider -->
+    <script type="text/javascript" src="~/js/slick.min.js"></script>
+    <!-- Event Counter -->
+    <script type="text/javascript" src="~/js/jquery.countdown.min.js"></script>
+    <!-- Ajax contact form  -->
+    <script type="text/javascript" src="~/js/app.js"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="~/js/custom.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

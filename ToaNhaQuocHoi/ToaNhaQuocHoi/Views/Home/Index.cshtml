@@ -1,0 +1,318 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<!-- Start Header -->
+<header id="mu-hero" class="" role="banner">
+    <!-- Start menu  -->
+    <nav class="navbar navbar-fixed-top navbar-default mu-navbar">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Logo -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Nhóm 10</a>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav mu-menu navbar-right">
+                    <li><a href="#mu-hero">Trang chủ</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Map">Bản đồ 3D</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Tour">Tham quan</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Liên hệ</a></li>
+                    <li><a href="#">Đăng ký</a></li>
+                    <li><a href="#">Đăng nhập</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End menu -->
+
+    <div class="mu-hero-overlay">
+        <div class="container">
+            <div class="mu-hero-area">
+
+                <!-- Start hero featured area -->
+                <div class="mu-hero-featured-area">
+                    <!-- Start center Logo -->
+                    <div class="mu-logo-area">
+                        <!-- text based logo -->
+                        <a class="mu-logo" href="#">NHÓM 10</a>
+                        <!-- image based logo -->
+                        <!-- <a class="mu-logo" href="#"><img src="assets/images/logo.jpg" alt="logo img"></a> -->
+                    </div>
+                    <!-- End center Logo -->
+
+                    <div class="mu-hero-featured-content">
+
+                        <h1>CHÀO MỪNG BẠN ĐẾN VỚI NHÀ QUỐC HỘI</h1>
+                        <h2>Ngôi nhà chung của dân tộc Việt Nam</h2>
+                        <!-- <a class="mu-event-date-line"  href="#">Đăng ký tham quan</a> -->
+
+                        <div class="mu-event-counter-area">
+                            <div id="mu-event-counter">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End hero featured area -->
+
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End Header -->
+<!-- Start main content -->
+<main role="main">
+    <!-- Start About -->
+    <section id="mu-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mu-about-area">
+                        <!-- Start Feature Content -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mu-about-left">
+                                    <img class="" src="./images/introduce.jpg" alt="Tòa Nhà Quốc Hội">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mu-about-right">
+                                    <h2>Giới thiệu Tòa nhà Quốc Hội</h2>
+                                    <p><b>Nhà Quốc hội</b> hay <b>Tòa nhà Quốc hội Việt Nam</b>, còn có tên Hội trường Ba Đình mới là trụ sở làm việc và nơi diễn ra các phiên họp toàn thể của Quốc hội Việt Nam.</p>
+                                    <p><b>Nhà Quốc hội</b> được khởi công xây dựng vào năm 2009 tại khu trung tâm chính trị Ba Đình. Tòa nhà tọa lạc trên đường Độc Lập, nhìn ra Quảng trường Ba Đình, đối diện với Lăng Chủ tịch Hồ Chí Minh và nằm cạnh khu di tích khảo cổ 18 Hoàng Diệu.</p>
+                                    <p>Tòa nhà được thiết kế thành 2 khối. Mặt bằng chính hình vuông - <i>tượng trưng cho "đất" </i> có diện tích lên tới hơn 1 hecta mỗi sàn "ôm" lấy phòng họp chính hình tròn ở giữa - <i>tượng trưng cho "trời"</i>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Feature Content -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About -->
+    <!-- Start Video -->
+    <section id="mu-video">
+        <div class="mu-video-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mu-video-area">
+                            <h2>Video giới thiệu Tòa nhà Quốc hội Việt Nam</h2>
+                            <a class="mu-video-play-btn" href="#"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Video content -->
+        <div class="mu-video-content">
+            <div class="mu-video-iframe-area">
+                <a class="mu-video-close-btn" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <iframe width="1254" height="680" src="https://www.youtube.com/embed/V80aMdby6QE"
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- <iframe width="854" height="480" src="https://www.youtube.com/embed/n9AVEl9764s" frameborder="0" allowfullscreen></iframe> -->
+            </div>
+        </div>
+        <!-- End Video content -->
+
+    </section>
+    <!-- End Video -->
+    <!-- Start Introduce  -->
+    <section id="mu-schedule">
+        <div class="container">
+            <div class="row">
+                <div class="colo-md-12">
+                    <div class="mu-schedule-area">
+
+                        <div class="mu-title-area">
+                            <h2 class="mu-title">Tham quan Tòa nhà Quốc hội </h2>
+                            <p>
+                                Thời gian mở cửa từ Thứ 2 đến Thứ 7 hàng tuần, trừ chủ nhật và các ngày Lễ, Tết. Khu trưng bày Khảo cổ học chỉ mở cửa vào
+                                Thứ 3 và Thứ 5 hàng tuần (trừ trường hợp đặc biệt).
+                            </p>
+                        </div>
+
+                        <div class="mu-schedule-content-area">
+                            <div class="tab-content mu-schedule-content">
+                                <div role="tabpanel" class="tab-pane fade mu-event-timeline in active" id="first-day">
+                                    <ul>
+                                        <li>
+                                            <div class="mu-single-event">
+                                                <img src="./images/tang-ham.jpg" alt="Tầng hầm">
+                                                <p style="color: black; font-size: 15px;" class="mu-event-time">Tầng hầm</p>
+                                                <h3>Khu trưng bày di tích - Phòng báo chí</h3>
+                                                <span>Trưng bày hơn 400 di vật và gần 10 di tích</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-event">
+                                                <img src="./images/tang-1.jpg" alt="Tầng 1">
+                                                <p style="color: black; font-size: 15px;" class="mu-event-time">Tầng 1</p>
+                                                <h3>Phòng truyền thống<br>Khu khánh tiết - Phòng tiệc</h3>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-event">
+                                                <img src="./images/tang-2.jpg" alt="Tầng 2">
+                                                <p style="color: black; font-size: 15px;" class="mu-event-time">Tầng 2</p>
+                                                <h3>Phòng họp Tân Trào</h3>
+                                                <span>Phòng họp của Ủy ban Thường vụ Quốc hội</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-event">
+                                                <img src="./images/tang-3.jpg" alt="Tầng 3 - 4">
+                                                <p style="color: black; font-size: 15px;" class="mu-event-time">Tầng 3</p>
+                                                <h3>Phòng họp lớn - Hội trường</h3>
+                                                <span>nối liền với tầng 4</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-event">
+                                                <img src="./images/tang-5.jpg" alt="Tầng 5">
+                                                <p style="color: black; font-size: 15px;" class="mu-event-time">Tầng 5</p>
+                                                <h3>Khu làm việc của các lãnh đạo cấp cao</h3>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-event">
+                                                <img src="./images/center.jpg" alt="Trung tâm tòa nhà">
+                                                <p style="color: black; font-size: 15px;" class="mu-event-time">Trung tâm tòa nhà</p>
+                                                <h3>HỘI TRƯỜNG DIÊN HỒNG</h3>
+                                                <span>có mặt bằng hình tròn độc đáo.</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End Introduce -->
+    <!-- Start Slide Event -->
+    <section id="mu-speakers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mu-speakers-area">
+
+                        <div class="mu-title-area">
+                            <h2 class="mu-title">Một số hoạt động</h2>
+                            <p>Tòa nhà Quốc hội Việt Nam là nơi quyết định các vấn đề quan trọng bậc nhất của đất nước. Đây là một công trình hành chính có quy mô lớn và hiện đại nhất Việt Nam, đại diện cho cơ quan quyền lực nhà nước cao nhất.</p>
+                        </div>
+
+                        <!-- Start Event Content -->
+                        <div class="mu-speakers-content">
+
+                            <div class="mu-speakers-slider">
+
+                                <!-- Start single event -->
+                                <div class="mu-single-speakers">
+                                    <img src="./images/event-1.png" alt="Hình ảnh sự kiện">
+                                    <div class="mu-single-speakers-info">
+                                        <p>Gặp mặt đoàn đại biểu tham dự chương trình "Tỏa sáng nghị lực Việt Nam" 2021</p>
+                                    </div>
+                                </div>
+                                <!-- End single event -->
+                                <!-- Start single event -->
+                                <div class="mu-single-speakers">
+                                    <img src="./images/event-2.png" alt="Hình ảnh sự kiện">
+                                    <div class="mu-single-speakers-info">
+                                        <p>Chủ tịch Quốc hội Vương Đình Huệ đã tiếp Nghị sĩ Choi Jae-sung</p>
+                                    </div>
+                                </div>
+                                <!-- End single event -->
+                                <!-- Start single event -->
+                                <div class="mu-single-speakers">
+                                    <img src="./images/event-3.png" alt="Hình ảnh sự kiện">
+                                    <div class="mu-single-speakers-info">
+                                        <p>Ủy ban Thường vụ Quốc hội cho ý kiến về Đề án xây dựng cơ chế, chính sách tài khóa, tiền tệ </p>
+                                    </div>
+                                </div>
+                                <!-- End single event -->
+                                <!-- Start single event -->
+                                <div class="mu-single-speakers">
+                                    <img src="./images/event-4.png" alt="Hình ảnh sự kiện">
+                                    <div class="mu-single-speakers-info">
+                                        <p>Hội nghị cán bộ toàn quốc quán triệt nghị quyết trung ương khóa XIII về đẩy mạnh xây dựng, chỉnh đốn Đảng </p>
+                                    </div>
+                                </div>
+                                <!-- End single event -->
+                                <!-- Start single event -->
+                                <div class="mu-single-speakers">
+                                    <img src="./images/event-1.png" alt="Hình ảnh sự kiện">
+                                    <div class="mu-single-speakers-info">
+                                        <p>Gặp mặt đoàn đại biểu tham dự chương trình "Tỏa sáng nghị lực Việt Nam" 2021</p>
+                                    </div>
+                                </div>
+                                <!-- End single event -->
+                                <!-- Start single event -->
+                                <div class="mu-single-speakers">
+                                    <img src="./images/event-2.png" alt="Hình ảnh sự kiện">
+                                    <div class="mu-single-speakers-info">
+                                        <p>Chủ tịch Quốc hội Vương Đình Huệ đã tiếp Nghị sĩ Choi Jae-sung</p>
+                                    </div>
+                                </div>
+                                <!-- End single event -->
+                                <!-- Start single event -->
+                                <div class="mu-single-speakers">
+                                    <img src="./images/event-3.png" alt="Hình ảnh sự kiện">
+                                    <div class="mu-single-speakers-info">
+                                        <p>Ủy ban Thường vụ Quốc hội cho ý kiến về Đề án xây dựng cơ chế, chính sách tài khóa, tiền tệ </p>
+                                    </div>
+                                </div>
+                                <!-- End single event -->
+                            </div>
+                        </div>
+                        <!-- End Event Content -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Event -->
+    <!-- Start map -->
+    <section id="mu-venue">
+        <div class="mu-venue-area">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="mu-venue-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.89197851306!2d105.83531241488346!3d21.037007785993858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aba3847870db%3A0x3e6627a44ec34b3d!2zVMOyYSBuaMOgIFF14buRYyBo4buZaSBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1639160946177!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.8176744277202!2d-81.47150788457147!3d28.424757900613237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77e378ec5a9a9%3A0x2feec9271ed22c5b!2sOrange+County+Convention+Center!5e0!3m2!1sen!2sbd!4v1503833952781" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mu-venue-address">
+                        <h2>Tòa nhà Quốc hội Việt Nam <i class="fa fa-chevron-right" aria-hidden="true"></i></h2>
+                        <!-- <h3>Orange County Convention Center</h3> -->
+                        <h4>số 1, đường Độc Lập, phường Quán Thánh, quận Ba Đình, thủ đô Hà Nội, Việt Nam</h4>
+                        <p><b>Thời gian mở cửa:</b> Thứ 2 đến Thứ 7 hàng tuần, trừ chủ nhật và các ngày Lễ, Tết. Khu trưng bày Khảo cổ học chỉ mở cửa vào Thứ 3 và Thứ 5 hàng tuần (trừ trường hợp đặc biệt).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Venue -->
+</main>
+<!-- End main content	 -->

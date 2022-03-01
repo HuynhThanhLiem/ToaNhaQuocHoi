@@ -1,0 +1,5 @@
+- Download 2 foldersToaNhaQuocHoi, ToaNhaQuocHoi.API and backup Database db_ToaNhaQuocHoi.bak.
+- Import database into Microsoft SQL Server Management 2019.
+- Then, extract file and open project ToaNhaQuocHoi.API and ToaNhaQuocHoi with Visual Studio 2019.
+- In file appsettings.json of project ToaNhaQuocHoi.API, rename server name with your servername.
+- Run project ToaNhaQuocHoi.API and then, run project ToaNhaQuocHoi.

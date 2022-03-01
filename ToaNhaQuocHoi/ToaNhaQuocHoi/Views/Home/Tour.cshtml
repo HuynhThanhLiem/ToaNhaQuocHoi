@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Tham quan";
+}
+<!-- Start Header -->
+<header id="mu-hero" class="tour-class" role="banner">
+    <!-- Start menu  -->
+    <nav class="navbar navbar-fixed-top navbar-default mu-navbar">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Logo -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Nhóm 10</a>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav mu-menu navbar-right">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Map">Bản đồ 3D</a></li>
+                    <li><a href="#mu-hero">Tham quan</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Liên hệ</a></li>
+                    <li><a href="#">Đăng ký</a></li>
+                    <li><a href="#">Đăng nhập</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End menu -->
+
+    <div class="mu-hero-overlay">
+        <div class="container">
+            <div class="mu-hero-area">
+                <!-- Start hero featured area -->
+                <div class="mu-hero-featured-area">
+                    <!-- Start center Logo -->
+                    <div class="mu-logo-area">
+                        <!-- text based logo -->
+                        <a style="opacity: 0" class="mu-logo" href="#">NHÓM 10</a>
+                    </div>
+                    <!-- End center Logo -->
+
+                    <div class="mu-hero-featured-content">
+
+                        <h1 style="font-size: 44px;">Lộ trình tham quan Tòa nhà Quốc hội</h1>
+                        <h2 style="font-size: 20px;">Khách đến tham quan Nhà Quốc hội được tham quan những địa điểm sau</h2>
+
+                        <div class="mu-event-counter-area">
+                            <div id="mu-event-counter">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End hero featured area -->
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End Header-->
+
+<!--Main Section-->
+    <div>  
+      <div class="first-place place">
+          <div class="container"> 
+            <div class="row">
+              <div class="col-6">
+                <img src="https://thamquan.quochoi.vn/Uploads/images/Picture6.png" alt="">
+              </div>
+              <div class="col-6">
+                  <h6>Địa điểm 1</h6>												
+                  <h3>Đường hầm tranh nghệ thuật đương đại</h3>
+                  <p style="text-align: justify;">Đây là món quà của Ủy ban Nhân dân Thành phố Hà Nội tặng Quốc hội Việt Nam, được 15 nghệ sĩ đương đại 
+                  tên tuổi của Việt Nam cùng trên 100 trợ lý kỹ thuật, thợ lành nghề của Hà Nội, Thái Bình và Thừa Thiên - Huế hoàn thành trong vòng 3 
+                  tháng.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="second-place place">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <h6>Địa điểm 2</h6>												
+                <h3>Khu Trưng bày “Những khám phá khảo cổ học dưới lòng đất Nhà Quốc hội</h3>
+                <p style="text-align: justify;">Đến với Khu Trưng bày, khách tham quan sẽ được chiêm ngưỡng hơn 400 di vật được lựa chọn trong tổng số 
+                  hơn 2.800 hiện vật khảo cổ được tìm thấy dưới lòng đất Nhà Quốc hội. Nội dung chính của khu Trưng bày "Những khám phá khảo cổ học dưới 
+                  lòng đất Nhà Quốc hội" là giới thiệu một số loại hình di tích, di vật tiêu biểu, đặc sắc nhất khai quật được tại khu vực xây dựng Nhà Quốc 
+                  hội vào những năm 2008-2009.</p>
+              </div>
+              <div class="col-6">
+                <img src="https://thamquan.quochoi.vn/Uploads/images/Picture24.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="first-place place">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <img src="https://thamquan.quochoi.vn/Uploads/images/Picture22.png" alt="">
+              </div>
+              <div class="col-6">
+                <h6>Địa điểm 3</h6>												
+                <h3>Phòng Truyền thống Quốc hội</h3>
+                <p style="text-align: justify;">Phòng Truyền thống Quốc hội là nơi lưu giữ những tài liệu, hình ảnh, hiện vật về quá trình hình thành và 
+                  phát triển của Quốc hội Việt Nam từ năm 1946 đến nay. Tại đây, khách tham quan sẽ được tìm hiểu về lịch sử hình thành và phát triển của 
+                  Quốc hội Việt Nam cũng như truyền thống của Quốc hội qua các giai đoạn phát triển. Không gian trưng bày của Phòng Truyền thống Quốc hội 
+                  trải dài qua nhiều giai đoạn khác nhau. 
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="second-place place">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <h6>Địa điểm 4</h6>												
+                <h3>Sảnh tầng 1 toà nhà Quốc hội</h3>
+                <p style="text-align: justify;">Đây là nơi tổ chức các nghi lễ đón tiếp khách trong nước và quốc tế, có diện tích khoảng 2.900m2. Nơi đây có 
+                  hai bên là 2 hệ thống gồm 12 thang cuốn chạy từ tầng 1 đến tầng 3. Các tầng khác phải sử dụng thang máy gồm 10 thang máy và 2 thang nâng 
+                  cho người khuyết tật. Sảnh chính hướng ra phía tây, đường Độc Lập (phía Quảng trường Ba Đình) và một sảnh nữa hướng ra đường Bắc Sơn với 
+                  sân rộng để tổ chức các nghi lễ ngoài trời.</p>
+              </div>
+              <div class="col-6">
+                <img src="https://thamquan.quochoi.vn/Uploads/images/Picture18.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="first-place place">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <img src="https://thamquan.quochoi.vn/Uploads/images/HMQ00508-denoise-denoise.png" alt="">
+              </div>
+              <div class="col-6">
+                <h6>Địa điểm 5</h6>												
+                <h3>Phòng Diên Hồng</h3>
+                <p style="text-align: justify;">Hội trường Diên Hồng được thiết kế theo hình vòng cung với hai lớp ghế ngồi. Khu thứ nhất gồm 575 ghế dành 
+                  cho đại biểu Quốc hội và khách mời; chiếc thứ hai gồm 339 chỗ cho khách và kiểm toán viên trong nước và quốc tế. Trong tổng số 575 ghế ở 
+                  khu vực 1, có 500 ghế dành cho đại biểu Quốc hội, số ghế còn lại dành cho khách mời. Chỗ ngồi của đại biểu Quốc hội được bố trí luân phiên 
+                  tại mỗi kỳ họp để đảm bảo các đại biểu có thể ngồi ở các vị trí khác nhau trong phòng họp. Điều này nhằm bảo đảm sự công bằng, không phân 
+                  biệt đối xử giữa các đại biểu Quốc hội.</p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-register">
+          <button type="submit" class="mu-send-msg-btn">ĐĂNG KÝ THAM QUAN</button>
+        </div>
+
+    </div>
+<!--End Main Section-->
